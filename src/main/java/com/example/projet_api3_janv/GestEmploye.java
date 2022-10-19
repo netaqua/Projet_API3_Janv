@@ -82,7 +82,6 @@ public class GestEmploye {
         System.out.println("recherche de l'employé numéro :"+ idEmploye);
         APIEmploye emp = new APIEmploye(matricule,prenom,tel);
         try {
-            employeServiceImpl.create(emp);
             emp = employeServiceImpl.read(idEmploye);
             emp.setPrenom(prenom);
             emp.setMatricule(matricule);
