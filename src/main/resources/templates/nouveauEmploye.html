@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Employe</title>
+</head>
+<body>
+<table border="1">
+  <th>ID</th>
+  <th>MATRICULE</th>
+  <th>PRENOM</th>
+  <th>TELEPHONE</th>
+  <tr>
+    <td th:text="${nouvEmp.idemploye}"/>
+    <td th:text="${nouvEmp.matricule}"/>
+    <td th:text="${nouvEmp.prenom}"/>
+    <td th:text="${nouvEmp.tel}"/>
+  </tr>
+</table>
+<a href ="/">retour</a>
+</body>
+</html>
