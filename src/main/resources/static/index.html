@@ -9,15 +9,17 @@
 <p><a href="employe/tous">voir tous les employes</a></p>
 <p><h3>Création d'un employé</h3>
 <form action = "employe/create" method="get">
-    prenom : <input type = "text" name="prenom"> <br>
     matricule : <input type = "text" name="matricule"> <br>
+    nom : <input type = "text" name="nom"> <br>
+    prenom : <input type = "text" name="prenom"> <br>
     tel : <input type = "text" name="tel"> <br>
+    mail : <input type = "text" name="mail"> <br>
     <input type="submit" name="ok" value="ok">
 </form>
 </p>
 <p><h3>Modifier un employé</h3>
 <form action = "employe/uptade" method="get">
-    id employé : <input type = "text" name = "idemploye"> <br>
+    id employé : <input type = "text" name = "idEmploye"> <br>
     prenom : <input type = "text" name="prenom"> <br>
     matricule : <input type = "text" name="matricule"> <br>
     tel : <input type = "text" name="tel"> <br>
@@ -32,7 +34,7 @@
 </p>
 <p><h3>Supprimer un employé</h3>
 <form action="employe/delete" method="get">
-    id employé : <input type = "text" name = "idemploye"> <br>
+    id employé : <input type = "text" name = "idEmploye"> <br>
     <input type="submit" name="ok" value="ok">
 </form>
 </p>

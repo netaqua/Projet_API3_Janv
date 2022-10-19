@@ -6,9 +6,18 @@
   <h1>Suppression effectuée</h1>
 </head>
 <body>
-    <td th:text="${delEmp.idemploye}"/>
-    <td th:text="${delEmp.prenom}"/>
-    <td th:text="${delEmp.matricule}"/>
-    <td th:text="${delEmp.tel}"/>
+<table border="1">
+    <th>ID</th>
+    <th>Prenom</th>
+    <th>Matricule</th>
+    <th>Telephone</th>
+    <tr>
+        <td th:text="${monEmp.idemploye}"/>
+        <td th:text="${monEmp.prenom}"/>
+        <td th:text="${monEmp.matricule}"/>
+        <td th:text="${monEmp.tel}"/>
+    </tr>
+</table>
+
 </body>
 </html>
