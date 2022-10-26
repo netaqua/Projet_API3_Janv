@@ -9,12 +9,16 @@
 <body>
 <table border="1">
   <th>ID</th>
+  <th>Nom</th>
   <th>Prenom</th>
+  <th>Mail</th>
   <th>Matricule</th>
   <th>Telephone</th>
   <tr th:each="unEmploye : ${mesEmployes}">
     <td th:text="${unEmploye.idemploye}"/>
+    <td th:text="${unEmploye.nom}"/>
     <td th:text="${unEmploye.prenom}"/>
+    <td th:text="${unEmploye.mail}"/>
     <td th:text="${unEmploye.matricule}"/>
     <td th:text="${unEmploye.tel}"/>
   </tr>

@@ -22,5 +22,6 @@ public class APIProjet {
     private LocalDate dateFin;
     @NonNull
     private double cout;
+    @ManyToOne @JoinColumn(name = "IDRESPONSABLE")
     private APIEmploye projetResp;
 }

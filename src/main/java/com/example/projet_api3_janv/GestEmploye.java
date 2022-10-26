@@ -31,9 +31,9 @@ public class GestEmploye {
         return "affichageTousEmployes";
     }
     @RequestMapping("/create")
-    public String create(@RequestParam String matricule, String nom,@RequestParam String prenom, @RequestParam String tel,String mail, Map<String, Object> model){
+    public String create(@RequestParam String matricule, String nom,String prenom, @RequestParam String tel,@RequestParam String mail, Map<String, Object> model){
         System.out.println("création de client");
-        APIEmploye emp = new APIEmploye(null,matricule,nom,prenom,tel,mail);
+        APIEmploye emp = new APIEmploye(null,matricule,nom,prenom,tel,mail,null);
         try {
             employeServiceImpl.create(emp);
             System.out.println(emp.getIdemploye());
@@ -78,12 +78,12 @@ public class GestEmploye {
     }
 
     @RequestMapping("/update")
-    public String read(@RequestParam int idEmploye,String prenom,String matricule,String tel, Map<String, Object>model){
+    public String read(@RequestParam int idEmploye,String mail,String matricule,String tel, Map<String, Object>model){
         System.out.println("recherche de l'employé numéro :"+ idEmploye);
-        APIEmploye emp = new APIEmploye(matricule,prenom,tel);
+        APIEmploye emp = new APIEmploye(matricule,mail,tel);
         try {
             emp = employeServiceImpl.read(idEmploye);
-            emp.setPrenom(prenom);
+            emp.setMail(mail);
             emp.setMatricule(matricule);
             emp.setTel(tel);
             employeServiceImpl.update(emp);

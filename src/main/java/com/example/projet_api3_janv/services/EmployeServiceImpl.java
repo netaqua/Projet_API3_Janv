@@ -30,6 +30,7 @@ public class EmployeServiceImpl implements InterfEmployeService{
     }
     @Override
     public APIEmploye update(APIEmploye employe) throws Exception {
+        read(employe.getIdemploye());
         employeRepository.save(employe);
         return employe;
     }
