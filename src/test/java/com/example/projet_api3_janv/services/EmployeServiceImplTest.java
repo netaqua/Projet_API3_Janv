@@ -1,6 +1,7 @@
 package com.example.projet_api3_janv.services;
 
 import com.example.projet_api3_janv.entities.APIEmploye;
+import com.example.projet_api3_janv.entities.APIProjet;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,12 +22,13 @@ class EmployeServiceImplTest {
 
    @Autowired
    private EmployeServiceImpl employeServiceImp;
+
     APIEmploye emp;
 
     @BeforeEach
     void setUp() {
         try{
-            emp = new APIEmploye(null,"MatTest","NomTest","PrenomTest","TelTest","Mailtest");
+            emp = new APIEmploye(null,"MatTest","NomTest","PrenomTest","TelTest","Mailtest",new ArrayList<>());
             employeServiceImp.create(emp);
             System.out.println("création du client : "+ emp);
         }

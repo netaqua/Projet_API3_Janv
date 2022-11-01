@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Infos Client</title>
+</head>
+<body>
+<table border="1">
+  <th>ID</th>
+  <th>Nom</th>
+  <th>Prenom</th>
+  <th>Mail</th>
+  <th>Matricule</th>
+  <th>Telephone</th>
+  <tr>
+    <td th:text="${monemp.idemploye}"/>
+    <td th:text="${monemp.nom}"/>
+    <td th:text="${monemp.prenom}"/>
+    <td th:text="${monemp.mail}"/>
+    <td th:text="${monemp.matricule}"/>
+    <td th:text="${monemp.tel}"/>
+  </tr>
+</table>
+
+
+<table border="1">
+  <th>NUM COMMANDE</th>
+  <th>NUM FACTURE</th>
+  <th>DATE COMMANDE</th>
+  <th>ETAT</th>
+  <th>MONTANT</th>
+  <tr th:each="monprj : ${mesprj}">
+    <td th:text="${monprj.numcommande}"/>
+    <td th:text="${monprj.numfact}"/>
+    <td th:text="${monprj.datecom}"/>
+    <td th:text="${monprj.etat}"/>
+    <td th:text="${monprj.montant}"/>
+  </tr>
+</table>
+<a href ="/">retour</a>
+</body>
+</html>

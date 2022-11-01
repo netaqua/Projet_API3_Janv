@@ -14,7 +14,7 @@ import java.time.LocalDate;
 public class APIProjet {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "projet_generator")
     @SequenceGenerator(name="projet_generator", sequenceName ="APIPROJET_SEQ", allocationSize=1)
-    private int idProjet;
+    private Integer idProjet;
     @NonNull
     private String nomProj;
     private LocalDate dateDebut;

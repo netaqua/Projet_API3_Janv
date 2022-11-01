@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
@@ -33,7 +34,7 @@ public class GestEmploye {
     @RequestMapping("/create")
     public String create(@RequestParam String matricule, String nom,String prenom, @RequestParam String tel,@RequestParam String mail, Map<String, Object> model){
         System.out.println("création de client");
-        APIEmploye emp = new APIEmploye(null,matricule,nom,prenom,tel,mail,null);
+        APIEmploye emp = new APIEmploye(null,matricule,nom,prenom,tel,mail,new ArrayList<>());
         try {
             employeServiceImpl.create(emp);
             System.out.println(emp.getIdemploye());
