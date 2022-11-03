@@ -95,7 +95,7 @@ class EmployeServiceImplTest {
     void delete() {
         try{
             employeServiceImp.delete(emp);    Assertions.assertThrows(Exception.class, () -> {
-                employeServiceImp.read(emp.getIdemploye());
+                employeServiceImp.read(emp.getIdemploye());    //test
             },"record non effacé");
         }
         catch(Exception e){
