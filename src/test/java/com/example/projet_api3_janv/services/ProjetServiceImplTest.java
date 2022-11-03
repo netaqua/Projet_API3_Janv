@@ -30,8 +30,6 @@ public class ProjetServiceImplTest {
     @Autowired
     private ProjetServiceImpl projetServiceImpl;
 
-
-
     @BeforeEach
     void setUp() {
         try{
@@ -77,8 +75,6 @@ public class ProjetServiceImplTest {
         assertNotEquals(LocalDate.now(),prj.getDateDebut(),"Date de debut du projet non enregistré : "+prj.getDateDebut()+ " au lieu de "+LocalDate.now());
         assertNotEquals(LocalDate.of(2024,02,21),prj.getDateFin(),"Date de debut du projet non enregistré : "+prj.getDateFin()+ " au lieu de "+LocalDate.of(2024,02,21));
     }
-
-
 
     @Test
     void read() {
