@@ -58,6 +58,7 @@ public class ProjetServiceImplTest {
         }
         try{
             employeServiceImpl.delete(emp);
+            employeServiceImpl.delete(emp2);
         }
         catch(Exception e){
             System.out.println("erreur d'effacement de l'employé"+e);
@@ -123,6 +124,7 @@ public class ProjetServiceImplTest {
             Assertions.assertThrows(Exception.class, () -> {
                 projetServiceImpl.read(prj.getIdProjet());
             },"record non effacé");
+
         }
         catch(Exception e){
             fail("erreur d'effacement "+e);

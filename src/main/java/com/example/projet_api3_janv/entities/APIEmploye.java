@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import javax.management.ConstructorParameters;
 import javax.persistence.*;
-import java.util.ArrayList;
+
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -29,6 +30,6 @@ public class APIEmploye {
     @JsonIgnore
     @OneToMany(mappedBy = "projetResp")
     @ToString.Exclude
-    private ArrayList<APIProjet> projets;
+    private List<APIProjet> projets;
 
 }

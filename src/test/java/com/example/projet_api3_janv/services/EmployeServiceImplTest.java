@@ -28,7 +28,7 @@ class EmployeServiceImplTest {
     @BeforeEach
     void setUp() {
         try{
-            emp = new APIEmploye(null,"MatTest","NomTest","PrenomTest","TelTest","Mailtest",new ArrayList<APIProjet>(null));
+            emp = new APIEmploye(null,"MatTest","NomTest","PrenomTest","TelTest","MailTest",new ArrayList<>());
             employeServiceImp.create(emp);
             System.out.println("création du client : "+ emp);
         }
@@ -68,7 +68,7 @@ class EmployeServiceImplTest {
         assertNotEquals(0,emp.getIdemploye(),"id employé non incrémenté");
         assertEquals("TelTest",emp.getTel(),"tel employé non enregistré : "+emp.getTel()+ " au lieu de TelTest");
         assertEquals("PrenomTest",emp.getPrenom(),"prénom employé non enregistré : "+emp.getPrenom()+" au lieu de PrenomTest");
-        assertEquals("Mailtest",emp.getMail(),"mail employé non enregistré : "+emp.getMail()+ " au lieu de MailTest");
+        assertEquals("MailTest",emp.getMail(),"mail employé non enregistré : "+emp.getMail()+ " au lieu de MailTest");
     }
 
     @Test
@@ -84,7 +84,7 @@ class EmployeServiceImplTest {
             assertEquals("PrenomTest2",emp.getPrenom(),"prénoms différents "+"PrenomTest2"+"-"+emp.getPrenom());
             assertEquals("MailTest2",emp.getMail(),"mail différents "+"MailTest2"+"-"+emp.getMail());
             assertEquals("TelTest2",emp.getTel(),"telephone différents "+"TelTest2"+"-"+emp.getTel());
-            assertEquals("MatTest2",emp.getMatricule(),"matricule différents "+"MatTest2"+"-"+emp.getMatricule());
+            assertEquals("MatriculeTest2",emp.getMatricule(),"matricule différents "+"MatTest2"+"-"+emp.getMatricule());
         }
         catch(Exception e){
             fail("erreur de mise à jour "+e);

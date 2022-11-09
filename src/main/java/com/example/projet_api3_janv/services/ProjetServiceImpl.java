@@ -25,12 +25,12 @@ public class ProjetServiceImpl implements InterfProjetService{
 
     @Override
     public APIProjet read(String nom) {
-        return projetRepository.findProjetByNom(nom);
+        return projetRepository.findProjetByNomProj(nom);
     }
 
     @Override
     public List<APIProjet> read(LocalDate startDate) {
-        return projetRepository.findByStartDate(startDate);
+        return projetRepository.findByDateDebut(startDate);
     }
 
     @Override
@@ -62,7 +62,7 @@ public class ProjetServiceImpl implements InterfProjetService{
 
     @Override
     public List<APIProjet> getProjet(APIEmploye emp) {
-        List<APIProjet> lprj = projetRepository.findProjetByEmp(emp);
+        List<APIProjet> lprj = projetRepository.findProjetByProjetResp(emp);
         return lprj;
     }
 
