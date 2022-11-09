@@ -28,7 +28,7 @@ class EmployeServiceImplTest {
     @BeforeEach
     void setUp() {
         try{
-            emp = new APIEmploye(null,"MatTest","NomTest","PrenomTest","TelTest","Mailtest",new ArrayList<>());
+            emp = new APIEmploye(null,"MatTest","NomTest","PrenomTest","TelTest","Mailtest",new ArrayList<APIProjet>(null));
             employeServiceImp.create(emp);
             System.out.println("création du client : "+ emp);
         }
