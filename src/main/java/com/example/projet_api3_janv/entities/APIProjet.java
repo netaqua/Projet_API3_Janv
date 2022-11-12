@@ -4,6 +4,7 @@ import lombok.*;
 import javax.management.ConstructorParameters;
 import javax.persistence.*;
 import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
 @NoArgsConstructor
@@ -22,6 +23,7 @@ public class APIProjet {
     private LocalDate dateFin;
     @NonNull
     private double cout;
+    @JsonIgnore
     @ManyToOne @JoinColumn(name = "IDRESPONSABLE")
     private APIEmploye projetResp;
 }

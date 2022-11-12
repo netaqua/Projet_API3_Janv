@@ -29,6 +29,7 @@ class EmployeServiceImplTest {
     void setUp() {
         try{
             emp = new APIEmploye(null,"MatTest","NomTest","PrenomTest","TelTest","MailTest",new ArrayList<>());
+            System.out.println(emp);
             employeServiceImp.create(emp);
             System.out.println("création du client : "+ emp);
         }

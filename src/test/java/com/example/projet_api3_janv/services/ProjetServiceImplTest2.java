@@ -9,14 +9,19 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
-class ProjetServiceImplTest {
+public class ProjetServiceImplTest2 {
+
+
+
     @Autowired
     private EmployeServiceImpl employeServiceImpl;
 
@@ -25,7 +30,6 @@ class ProjetServiceImplTest {
 
     APIEmploye emp,emp2;
     APIProjet prj;
-
     @BeforeEach
     void setUp() {
         try{
@@ -36,7 +40,7 @@ class ProjetServiceImplTest {
             emp2 = new APIEmploye(null,"MatTest2","NomTest2","PrenomTest2","TelTest2","MailTest2",new ArrayList<>());
             employeServiceImpl.create(emp2);
             System.out.println("création du client : "+emp2);
-            prj = new APIProjet(null,"NomProjetTest", LocalDate.now(),LocalDate.of(2024,2,21),3500,emp);
+            prj = new APIProjet(null,"NomProjetTest",LocalDate.now(),LocalDate.of(2024,2,21),3500,emp);
             projetServiceImpl.create(prj);
             System.out.println("création du projet : "+prj);
         }
@@ -62,15 +66,16 @@ class ProjetServiceImplTest {
         }
     }
 
+
     @Test
     void create() {
+
         assertNotEquals(0,prj.getIdProjet(),"numéro du projet non incrémenté");
         assertEquals("NomProjetTest",prj.getNomProj(),"nom du projet non enregistré : "+prj.getNomProj()+ " au lieu de NomProjetTest");
         assertEquals(3500,prj.getCout(),"cout du projet non enregistré : "+prj.getCout()+ " au lieu de 3500");
         assertEquals(emp.getIdemploye(),prj.getProjetResp().getIdemploye(),"ID du responsable du projet non enregistré : "+prj.getProjetResp().getIdemploye()+ " au lieu de "+emp.getIdemploye());
         assertEquals(LocalDate.now(),prj.getDateDebut(),"Date de debut du projet non enregistré : "+prj.getDateDebut()+ " au lieu de "+LocalDate.now());
-        assertEquals(LocalDate.of(2024,2,21),prj.getDateFin(),"Date de debut du projet non enregistré : "+prj.getDateFin()+ " au lieu de "+LocalDate.of(2024,2,21));
-
+        assertEquals(LocalDate.of(2024,02,21),prj.getDateFin(),"Date de debut du projet non enregistré : "+prj.getDateFin()+ " au lieu de "+LocalDate.of(2024,02,21));
     }
 
     @Test
@@ -92,19 +97,20 @@ class ProjetServiceImplTest {
 
     @Test
     void update() {
+
         try{
             prj.setNomProj("NomProjetTest2");
             prj.setCout(5000);
             prj.setProjetResp(emp2);
             prj.setDateDebut(LocalDate.of(2022,12,11));
-            prj.setDateFin(LocalDate.of(2026,6,24));
+            prj.setDateFin(LocalDate.of(2026,06,24));
             prj= projetServiceImpl.update(prj);
 
             assertEquals(prj.getNomProj(),"NomProjetTest2","nom du projet non egale : "+prj.getNomProj()+ " au lieu de NomProjetTest2");
             assertEquals(prj.getCout(),5000,"cout du projet non egale : "+prj.getCout()+ " au lieu de 5000");
             assertEquals(prj.getProjetResp().getIdemploye(),emp2.getIdemploye(),"ID du responsable du projet non egale : "+prj.getProjetResp().getIdemploye()+ " au lieu de "+emp2.getIdemploye());
             assertEquals(prj.getDateDebut(),LocalDate.of(2022,12,11),"Date de debut du projet non enregistré : "+prj.getDateDebut()+ " au lieu de "+LocalDate.of(2022,12,11));
-            assertEquals(prj.getDateFin(),LocalDate.of(2026,6,24),"Date de debut du projet non enregistré : "+prj.getDateFin()+ " au lieu de "+LocalDate.of(2026,6,24));
+            assertEquals(prj.getDateFin(),LocalDate.of(2026,06,24),"Date de debut du projet non enregistré : "+prj.getDateFin()+ " au lieu de "+LocalDate.of(2026,06,24));
 
         }
         catch(Exception e){
@@ -112,19 +118,8 @@ class ProjetServiceImplTest {
         }
     }
 
-    @Test
-    void delete() {
-        try{
-            projetServiceImpl.delete(prj);
-            Assertions.assertThrows(Exception.class, () -> {
-                projetServiceImpl.read(prj.getIdProjet());
-            },"record non effacé");
 
-        }
-        catch(Exception e){
-            fail("erreur d'effacement "+e);
-        }
-    }
+
     @Test
     void rechNomProj() {
         APIProjet prj = projetServiceImpl.read("NomTest");
@@ -150,8 +145,9 @@ class ProjetServiceImplTest {
         }
         assertTrue(trouve,"projet non trouvé");
     }
+
     @Test
-    void affCollection(){
+    void affCollection(){ //ajouté
         try {
             Collection<APIProjet> lprj = projetServiceImpl.getProjet(emp);
             boolean trouve = false;
@@ -168,4 +164,17 @@ class ProjetServiceImplTest {
         }
     }
 
+    @Test
+    void delete() {
+        try{
+            projetServiceImpl.delete(prj);
+            Assertions.assertThrows(Exception.class, () -> {
+                projetServiceImpl.read(prj.getIdProjet());
+            },"record non effacé");
+
+        }
+        catch(Exception e){
+            fail("erreur d'effacement "+e);
+        }
+    }
 }

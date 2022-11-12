@@ -5,11 +5,13 @@ import com.example.projet_api3_janv.entities.APIProjet;
 import com.example.projet_api3_janv.repositories.EmployeRepository;
 import com.example.projet_api3_janv.repositories.ProjetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
-
+@Service
 @Transactional(rollbackOn = Exception.class)
 public class ProjetServiceImpl implements InterfProjetService{
     @Autowired
@@ -24,18 +26,18 @@ public class ProjetServiceImpl implements InterfProjetService{
     }
 
     @Override
-    public APIProjet read(String nom) {
-        return projetRepository.findProjetByNomProj(nom);
+    public APIProjet read(String nomProj) {
+        return projetRepository.findProjetByNomProj(nomProj);
     }
 
     @Override
-    public List<APIProjet> read(LocalDate startDate) {
-        return projetRepository.findByDateDebut(startDate);
+    public List<APIProjet> read(LocalDate dateDebut) {
+        return projetRepository.findByDateDebut(dateDebut);
     }
 
     @Override
-    public APIProjet read(Integer id) throws Exception {
-        return projetRepository.findById(id).get();
+    public APIProjet read(Integer idProjet) throws Exception {
+        return projetRepository.findById(idProjet).get();
     }
 
     @Override

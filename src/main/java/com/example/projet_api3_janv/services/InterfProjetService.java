@@ -7,9 +7,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface InterfProjetService extends InterfService<APIProjet>{
-    APIProjet read(String nom);
+    APIProjet read(String nomProjet);
 
-    List<APIProjet> read(LocalDate startDate);
+    List<APIProjet> read(LocalDate dateDebut);
 
     List<APIProjet> getProjet(APIEmploye emp);
 }
