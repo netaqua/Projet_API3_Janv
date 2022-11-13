@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface ProjetRepository extends JpaRepository<APIProjet, Integer> {
-    public List<APIProjet> findProjetByProjetResp(APIEmploye projetResp);
-    public APIProjet findProjetByNomProj(String nomProj);
-    public List<APIProjet> findByDateDebut(LocalDate dateDebut);
+    public List<APIProjet> findProjetByIdresponsable(APIEmploye idresponsable);
+    public APIProjet findProjetByNomproj(String nomproj);
+    public List<APIProjet> findByDatedebut(LocalDate datedebut);
 }

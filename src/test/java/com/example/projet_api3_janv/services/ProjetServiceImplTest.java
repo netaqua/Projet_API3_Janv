@@ -30,7 +30,6 @@ class ProjetServiceImplTest {
     void setUp() {
         try{
             emp = new APIEmploye(null,"MatTest","NomTest","PrenomTest","TelTest","MailTest",new ArrayList<>());
-            System.out.println(emp);
             employeServiceImpl.create(emp);
             System.out.println("création du client : "+ emp);
             emp2 = new APIEmploye(null,"MatTest2","NomTest2","PrenomTest2","TelTest2","MailTest2",new ArrayList<>());
@@ -64,26 +63,26 @@ class ProjetServiceImplTest {
 
     @Test
     void create() {
-        assertNotEquals(0,prj.getIdProjet(),"numéro du projet non incrémenté");
-        assertEquals("NomProjetTest",prj.getNomProj(),"nom du projet non enregistré : "+prj.getNomProj()+ " au lieu de NomProjetTest");
+        assertNotEquals(0,prj.getIdprojet(),"numéro du projet non incrémenté");
+        assertEquals("NomProjetTest",prj.getNomproj(),"nom du projet non enregistré : "+prj.getNomproj()+ " au lieu de NomProjetTest");
         assertEquals(3500,prj.getCout(),"cout du projet non enregistré : "+prj.getCout()+ " au lieu de 3500");
-        assertEquals(emp.getIdemploye(),prj.getProjetResp().getIdemploye(),"ID du responsable du projet non enregistré : "+prj.getProjetResp().getIdemploye()+ " au lieu de "+emp.getIdemploye());
-        assertEquals(LocalDate.now(),prj.getDateDebut(),"Date de debut du projet non enregistré : "+prj.getDateDebut()+ " au lieu de "+LocalDate.now());
-        assertEquals(LocalDate.of(2024,2,21),prj.getDateFin(),"Date de debut du projet non enregistré : "+prj.getDateFin()+ " au lieu de "+LocalDate.of(2024,2,21));
+        assertEquals(emp.getIdemploye(),prj.getIdresponsable().getIdemploye(),"ID du responsable du projet non enregistré : "+prj.getIdresponsable().getIdemploye()+ " au lieu de "+emp.getIdemploye());
+        assertEquals(LocalDate.now(),prj.getDatedebut(),"Date de debut du projet non enregistré : "+prj.getDatedebut()+ " au lieu de "+LocalDate.now());
+        assertEquals(LocalDate.of(2024,2,21),prj.getDatefin(),"Date de debut du projet non enregistré : "+prj.getDatefin()+ " au lieu de "+LocalDate.of(2024,2,21));
 
     }
 
     @Test
     void read() {
         try{
-            int idPrj= prj.getIdProjet();
+            int idPrj= prj.getIdprojet();
             APIProjet prj2=projetServiceImpl.read(idPrj);
-            assertEquals(prj2.getIdProjet(),prj.getIdProjet(),"numéro du projet non egale : "+prj2.getIdProjet()+"au lieu de "+prj.getIdProjet());
-            assertEquals(prj2.getNomProj(),prj.getNomProj(),"nom du projet non egale : "+prj2.getNomProj()+ " au lieu de "+prj.getNomProj());
+            assertEquals(prj2.getIdprojet(),prj.getIdprojet(),"numéro du projet non egale : "+prj2.getIdprojet()+"au lieu de "+prj.getIdprojet());
+            assertEquals(prj2.getNomproj(),prj.getNomproj(),"nom du projet non egale : "+prj2.getNomproj()+ " au lieu de "+prj.getNomproj());
             assertEquals(prj2.getCout(),prj.getCout(),"cout du projet non egale : "+prj2.getCout()+ " au lieu de "+prj.getCout());
-            assertEquals(prj2.getProjetResp().getIdemploye(),prj.getProjetResp().getIdemploye(),"ID du responsable du projet non egale : "+prj2.getProjetResp().getIdemploye()+ " au lieu de "+prj.getProjetResp().getIdemploye());
-            assertEquals(prj2.getDateDebut(),prj.getDateDebut(),"Date de debut du projet non enregistré : "+prj2.getDateDebut()+ " au lieu de "+prj.getDateDebut());
-            assertEquals(prj2.getDateFin(),prj.getDateFin(),"Date de debut du projet non enregistré : "+prj2.getDateFin()+ " au lieu de "+prj.getDateFin());
+            assertEquals(prj2.getIdresponsable().getIdemploye(),prj.getIdresponsable().getIdemploye(),"ID du responsable du projet non egale : "+prj2.getIdresponsable().getIdemploye()+ " au lieu de "+prj.getIdresponsable().getIdemploye());
+            assertEquals(prj2.getDatedebut(),prj.getDatedebut(),"Date de debut du projet non enregistré : "+prj2.getDatedebut()+ " au lieu de "+prj.getDatedebut());
+            assertEquals(prj2.getDatefin(),prj.getDatefin(),"Date de debut du projet non enregistré : "+prj2.getDatefin()+ " au lieu de "+prj.getDatefin());
         }
         catch (Exception e){
             fail("recherche infructueuse "+e);
@@ -93,18 +92,18 @@ class ProjetServiceImplTest {
     @Test
     void update() {
         try{
-            prj.setNomProj("NomProjetTest2");
+            prj.setNomproj("NomProjetTest2");
             prj.setCout(5000);
-            prj.setProjetResp(emp2);
-            prj.setDateDebut(LocalDate.of(2022,12,11));
-            prj.setDateFin(LocalDate.of(2026,6,24));
+            prj.setIdresponsable(emp2);
+            prj.setDatedebut(LocalDate.of(2022,12,11));
+            prj.setDatefin(LocalDate.of(2026,6,24));
             prj= projetServiceImpl.update(prj);
 
-            assertEquals(prj.getNomProj(),"NomProjetTest2","nom du projet non egale : "+prj.getNomProj()+ " au lieu de NomProjetTest2");
+            assertEquals(prj.getNomproj(),"NomProjetTest2","nom du projet non egale : "+prj.getNomproj()+ " au lieu de NomProjetTest2");
             assertEquals(prj.getCout(),5000,"cout du projet non egale : "+prj.getCout()+ " au lieu de 5000");
-            assertEquals(prj.getProjetResp().getIdemploye(),emp2.getIdemploye(),"ID du responsable du projet non egale : "+prj.getProjetResp().getIdemploye()+ " au lieu de "+emp2.getIdemploye());
-            assertEquals(prj.getDateDebut(),LocalDate.of(2022,12,11),"Date de debut du projet non enregistré : "+prj.getDateDebut()+ " au lieu de "+LocalDate.of(2022,12,11));
-            assertEquals(prj.getDateFin(),LocalDate.of(2026,6,24),"Date de debut du projet non enregistré : "+prj.getDateFin()+ " au lieu de "+LocalDate.of(2026,6,24));
+            assertEquals(prj.getIdresponsable().getIdemploye(),emp2.getIdemploye(),"ID du responsable du projet non egale : "+prj.getIdresponsable().getIdemploye()+ " au lieu de "+emp2.getIdemploye());
+            assertEquals(prj.getDatedebut(),LocalDate.of(2022,12,11),"Date de debut du projet non enregistré : "+prj.getDatedebut()+ " au lieu de "+LocalDate.of(2022,12,11));
+            assertEquals(prj.getDatefin(),LocalDate.of(2026,6,24),"Date de debut du projet non enregistré : "+prj.getDatefin()+ " au lieu de "+LocalDate.of(2026,6,24));
 
         }
         catch(Exception e){
@@ -117,7 +116,7 @@ class ProjetServiceImplTest {
         try{
             projetServiceImpl.delete(prj);
             Assertions.assertThrows(Exception.class, () -> {
-                projetServiceImpl.read(prj.getIdProjet());
+                projetServiceImpl.read(prj.getIdprojet());
             },"record non effacé");
 
         }
@@ -127,13 +126,13 @@ class ProjetServiceImplTest {
     }
     @Test
     void rechNomProj() {
-        APIProjet prj = projetServiceImpl.read("NomTest");
+        APIProjet prj = projetServiceImpl.read("NomProjetTest");
         boolean trouve=false;
-        if(prj.getNomProj().equals("NomProjetTest")){
+        if(prj.getNomproj().equals("NomProjetTest")){
             trouve=true;
         }
         else {
-            fail("La recherche ne correspond pas , nom = "+prj.getNomProj());
+            fail("La recherche ne correspond pas , nom = "+prj.getNomproj());
         }
         assertTrue(trouve,"projet non trouvé");
     }
@@ -142,10 +141,10 @@ class ProjetServiceImplTest {
         List<APIProjet> lprj = projetServiceImpl.read(LocalDate.now());
         boolean trouve=false;
         for(APIProjet p : lprj) {
-            if (p.getDateDebut().equals(LocalDate.now())) {
+            if (p.getDatedebut().equals(LocalDate.now())) {
                 trouve = true;
             } else {
-                fail("La recherche ne correspond pas , date = " + p.getDateDebut());
+                fail("La recherche ne correspond pas , date = " + p.getDatedebut());
             }
         }
         assertTrue(trouve,"projet non trouvé");
@@ -156,7 +155,7 @@ class ProjetServiceImplTest {
             Collection<APIProjet> lprj = projetServiceImpl.getProjet(emp);
             boolean trouve = false;
             for(APIProjet p:lprj){
-                if(p.getIdProjet().equals(prj.getIdProjet())){
+                if(p.getIdprojet().equals(prj.getIdprojet())){
                     trouve=true;
                     break;
                 }

@@ -26,30 +26,31 @@ public class ProjetServiceImpl implements InterfProjetService{
     }
 
     @Override
+    public APIProjet read(Integer idprojet) throws Exception {
+        return projetRepository.findById(idprojet).get();
+    }
+    @Override
     public APIProjet read(String nomProj) {
-        return projetRepository.findProjetByNomProj(nomProj);
+        return projetRepository.findProjetByNomproj(nomProj);
     }
 
     @Override
     public List<APIProjet> read(LocalDate dateDebut) {
-        return projetRepository.findByDateDebut(dateDebut);
+        return projetRepository.findByDatedebut(dateDebut);
     }
 
-    @Override
-    public APIProjet read(Integer idProjet) throws Exception {
-        return projetRepository.findById(idProjet).get();
-    }
+
 
     @Override
     public APIProjet update(APIProjet projet) throws Exception {
-        read(projet.getIdProjet());
+        read(projet.getIdprojet());
         projetRepository.save(projet);
         return projet;
     }
 
     @Override
     public void delete(APIProjet projet) throws Exception {
-        projetRepository.deleteById(projet.getIdProjet());
+        projetRepository.deleteById(projet.getIdprojet());
     }
 
     @Override
@@ -64,7 +65,7 @@ public class ProjetServiceImpl implements InterfProjetService{
 
     @Override
     public List<APIProjet> getProjet(APIEmploye emp) {
-        List<APIProjet> lprj = projetRepository.findProjetByProjetResp(emp);
+        List<APIProjet> lprj = projetRepository.findProjetByIdresponsable(emp);
         return lprj;
     }
 

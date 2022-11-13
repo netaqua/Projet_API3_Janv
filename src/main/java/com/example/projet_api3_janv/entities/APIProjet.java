@@ -15,15 +15,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class APIProjet {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "projet_generator")
     @SequenceGenerator(name="projet_generator", sequenceName ="APIPROJET_SEQ", allocationSize=1)
-    private Integer idProjet;
+    private Integer idprojet;
     @NonNull
-    private String nomProj;
-    private LocalDate dateDebut;
+    private String nomproj;
+    private LocalDate datedebut;
     @NonNull
-    private LocalDate dateFin;
+    private LocalDate datefin;
     @NonNull
     private double cout;
-    @JsonIgnore
-    @ManyToOne @JoinColumn(name = "IDRESPONSABLE")
-    private APIEmploye projetResp;
+    @ManyToOne @JoinColumn(name = "idresponsable")
+    private APIEmploye idresponsable;
 }

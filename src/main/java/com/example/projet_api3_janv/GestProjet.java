@@ -33,7 +33,7 @@ public class GestProjet {
             Client cl = ocl.get();*/
 
             APIEmploye emp= employeServiceImpl.read(idemp);
-            List<APIProjet> lprj = projetRepository.findProjetByProjetResp(emp);
+            List<APIProjet> lprj = projetRepository.findProjetByIdresponsable(emp);
             model.put("monemp",emp);
             model.put("mesprj", lprj);
         } catch (Exception e) {

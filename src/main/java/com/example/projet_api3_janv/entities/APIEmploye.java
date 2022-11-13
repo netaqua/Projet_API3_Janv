@@ -28,7 +28,7 @@ public class APIEmploye {
     private String mail;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "projetResp")
+    @OneToMany(mappedBy = "idresponsable")
     @ToString.Exclude
     private List<APIProjet> projets;
 
