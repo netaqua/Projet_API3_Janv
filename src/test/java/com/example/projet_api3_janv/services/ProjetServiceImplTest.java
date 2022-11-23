@@ -128,7 +128,7 @@ class ProjetServiceImplTest {
     void rechNomProj() {
         APIProjet prj = projetServiceImpl.read("NomProjetTest");
         boolean trouve=false;
-        if(prj.getNomproj().equals("NomProjetTest")){
+        if(prj.getNomproj().startsWith("NomProjetTest")){
             trouve=true;
         }
         else {

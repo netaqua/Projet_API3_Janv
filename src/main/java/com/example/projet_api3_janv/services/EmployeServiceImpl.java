@@ -3,6 +3,8 @@ package com.example.projet_api3_janv.services;
 import com.example.projet_api3_janv.entities.APIEmploye;
 import com.example.projet_api3_janv.repositories.EmployeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -41,5 +43,11 @@ public class EmployeServiceImpl implements InterfEmployeService{
     @Override
     public List<APIEmploye> all() throws Exception {
         return employeRepository.findAll();
+    }
+
+    @Override
+    public Page<APIEmploye> allp(Pageable pageable) throws Exception {
+        //pagination
+        return employeRepository.findAll(pageable);
     }
 }

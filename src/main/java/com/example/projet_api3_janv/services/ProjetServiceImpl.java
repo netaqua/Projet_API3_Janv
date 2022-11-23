@@ -5,6 +5,8 @@ import com.example.projet_api3_janv.entities.APIProjet;
 import com.example.projet_api3_janv.repositories.EmployeRepository;
 import com.example.projet_api3_janv.repositories.ProjetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
@@ -58,10 +60,10 @@ public class ProjetServiceImpl implements InterfProjetService{
         return projetRepository.findAll();
     }
 
-    /*@Override
+    @Override
     public Page<APIProjet> allp(Pageable pageable) throws Exception {
         return  projetRepository.findAll(pageable);
-    }*/
+    }
 
     @Override
     public List<APIProjet> getProjet(APIEmploye emp) {
