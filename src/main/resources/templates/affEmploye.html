@@ -12,13 +12,13 @@
     <th>Mail</th>
     <th>Matricule</th>
     <th>Telephone</th>
-    <tr th:each="unEmploye : ${mesEmployes}">
-        <td th:text="${unEmploye.idemploye}"/>
-        <td th:text="${unEmploye.nom}"/>
-        <td th:text="${unEmploye.prenom}"/>
-        <td th:text="${unEmploye.mail}"/>
-        <td th:text="${unEmploye.matricule}"/>
-        <td th:text="${unEmploye.tel}"/>
+    <tr th:each="unemploye : ${mesEmployes}">
+        <td th:text="${unemploye.idemploye}"/>
+        <td th:text="${unemploye.nom}"/>
+        <td th:text ="${unemploye.prenom}"/>
+        <td th:text="${unemploye.mail}"/>
+        <td th:text="${unemploye.matricule}"/>
+        <td th:text="${unemploye.tel}"/>
     </tr>
 </table>
 <a href ="/">retour</a>

@@ -126,15 +126,21 @@ class ProjetServiceImplTest {
     }
     @Test
     void rechNomProj() {
-        APIProjet prj = projetServiceImpl.read("NomProjetTest");
-        boolean trouve=false;
-        if(prj.getNomproj().startsWith("NomProjetTest")){
-            trouve=true;
+        try{
+            APIProjet prj = projetServiceImpl.read("NomProjetTest");
+            boolean trouve=false;
+            if(prj.getNomproj().startsWith("NomProjetTest")){
+                trouve=true;
+            }
+            else {
+                fail("La recherche ne correspond pas , nom = "+prj.getNomproj());
+            }
+            assertTrue(trouve,"projet non trouvé");
         }
-        else {
-            fail("La recherche ne correspond pas , nom = "+prj.getNomproj());
+        catch(Exception e){
+            fail("Erreur de recherche "+e);
         }
-        assertTrue(trouve,"projet non trouvé");
+
     }
     @Test
     void rechDateDebut() {

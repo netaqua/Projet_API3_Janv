@@ -23,6 +23,7 @@ public class APIProjet {
     private LocalDate datefin;
     @NonNull
     private double cout;
+
     @ManyToOne @JoinColumn(name = "idresponsable")
     private APIEmploye idresponsable;
 }

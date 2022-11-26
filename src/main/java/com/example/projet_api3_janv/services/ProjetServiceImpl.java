@@ -22,9 +22,9 @@ public class ProjetServiceImpl implements InterfProjetService{
     private EmployeRepository employeRepository;
 
     @Override
-    public APIProjet create(APIProjet projet) throws Exception {
-        projetRepository.save(projet);
-        return projet;
+    public APIProjet create(APIProjet prj) throws Exception {
+        projetRepository.save(prj);
+        return prj;
     }
 
     @Override
@@ -32,13 +32,13 @@ public class ProjetServiceImpl implements InterfProjetService{
         return projetRepository.findById(idprojet).get();
     }
     @Override
-    public APIProjet read(String nomProj) {
-        return projetRepository.findProjetByNomproj(nomProj);
+    public APIProjet read(String nomproj) throws Exception {
+        return projetRepository.findProjetByNomproj(nomproj);
     }
 
     @Override
-    public List<APIProjet> read(LocalDate dateDebut) {
-        return projetRepository.findByDatedebut(dateDebut);
+    public List<APIProjet> read(LocalDate datedebut) {
+        return projetRepository.findByDatedebut(datedebut);
     }
 
 

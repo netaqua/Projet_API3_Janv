@@ -10,7 +10,7 @@ public class SpringBootConfiguration {
     @Value("${server.mode}")
     private String mode;
     @Bean
-    InterfEmployeService employeServiceImpl() {
+    InterfEmployeService apiemployeServiceImpl() {
         System.out.println("création du service employé en mode : "+mode);
         switch (mode){
             case "PROD" : return new EmployeServiceImpl();
@@ -20,7 +20,7 @@ public class SpringBootConfiguration {
         }
     }
     @Bean
-    InterfProjetService projetServiceImpl() {
+    InterfProjetService apiprojetServiceImpl() {
         System.out.println("création du service projet en mode : "+mode);
         switch (mode){
             case "PROD" : return new ProjetServiceImpl();

@@ -21,6 +21,13 @@ public class EmployeServiceMock implements InterfEmployeService{
     }
 
     @Override
+    public APIEmploye read(String matricule, String tel, String mail) {
+        return le.stream().filter(emp->emp.getMatricule().equals(matricule) &&
+                emp.getTel().equals(tel)&&
+               emp.getMail().equals(mail)).findFirst().get();
+    }
+
+    @Override
     public Page<APIEmploye> allp(Pageable pageable) throws Exception {
         return null;
     }

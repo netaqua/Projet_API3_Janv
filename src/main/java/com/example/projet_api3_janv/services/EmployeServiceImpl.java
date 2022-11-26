@@ -20,6 +20,12 @@ public class EmployeServiceImpl implements InterfEmployeService{
     public List<APIEmploye> read(String nom) {
         return employeRepository.findByNomLike(nom+"%");
     }
+
+    @Override
+    public APIEmploye read(String matricule, String tel, String mail) {
+        return employeRepository.findAPIEmployeByMatriculeAndTelAndMail(matricule,tel,mail);
+    }
+
     @Override
     public APIEmploye create(APIEmploye employe) throws Exception {
         employeRepository.save(employe);

@@ -9,11 +9,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface InterfProjetService extends InterfService<APIProjet>{
-    APIProjet read(String nomProjet) throws Exception;
+    APIProjet read(String nomproj) throws Exception;
 
     List<APIProjet> read(LocalDate dateDebut);
 
     List<APIProjet> getProjet(APIEmploye emp);
 
     Page<APIProjet> allp(Pageable pageable) throws Exception;
+
+
 }

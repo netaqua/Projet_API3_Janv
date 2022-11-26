@@ -32,6 +32,13 @@ public class EmployeServiceStub implements InterfEmployeService{
     }
 
     @Override
+    public APIEmploye read(String matricule, String tel, String mail) {
+        APIEmploye emp = new APIEmploye(matricule,tel,mail);
+        emp.setIdemploye(1);
+        return emp;
+    }
+
+    @Override
     public APIEmploye update(APIEmploye apiEmploye) throws Exception {
         return apiEmploye;
     }

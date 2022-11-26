@@ -8,5 +8,7 @@ import java.util.List;
 
 @Repository
 public interface EmployeRepository extends JpaRepository<APIEmploye,Integer> {
-    public List<APIEmploye> findByNomLike(String nom);
+    List<APIEmploye> findByNomLike(String nom);
+
+    APIEmploye findAPIEmployeByMatriculeAndTelAndMail(String matricule,String tel, String mail);
 }
